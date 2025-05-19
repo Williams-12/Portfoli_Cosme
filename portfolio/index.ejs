@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Liste des Livres</h1>
+    
+    <% if (books.length > 0) { %>
+        <ul>
+            <% books.forEach(book => { %>
+                <li>
+                    <strong><%= book.title %></strong> - <%= book.author %> 
+                    (<a href="/books/<%= book.id %>">Voir</a>)
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>Aucun livre disponible.</p>
+    <% } %>
+
+    <a href="/login">Se connecter</a> | <a href="/register">S'inscrire</a>
+</body>
+</html>
