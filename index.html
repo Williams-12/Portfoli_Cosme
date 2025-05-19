@@ -15,7 +15,7 @@
 
     <!-- ############################# -->
     <!-- Header -->
-<!-- ############################# -->
+    <!-- ############################# -->
 
 
     <header>
@@ -44,18 +44,12 @@
             <p>Découvrez mon univers numérique : un portfolio de développement web alliant design élégant et solutions
                 performantes pour des expériences utilisateurs remarquables.</p>
             <div class="social-media">
-                <a target="_blank"
-                    href="#home"><i
-                        class='bx bxl-tiktok'></i></a>
-                <a target="_blank" href="#home"><i
-                        class='bx bxl-instagram-alt'></i></a>
-                <a target="_blank" href="#home"><i
-                        class='bx bxl-youtube'></i></a>
+                <a target="_blank" href="#home"><i class='bx bxl-tiktok'></i></a>
+                <a target="_blank" href="#home"><i class='bx bxl-instagram-alt'></i></a>
+                <a target="_blank" href="#home"><i class='bx bxl-youtube'></i></a>
                 <a target="_blank" href="#home"><i class='bx bxl-twitch'></i></a>
                 <a target="_blank" href="https://github.com/nouhoheflin"><i class='bx bxl-github'></i></a>
-                <a target="_blank"
-                    href="#home"><i
-                        class='bx bxl-discord-alt'></i></a>
+                <a target="_blank" href="#home"><i class='bx bxl-discord-alt'></i></a>
             </div>
         </div>
         <div class="home-img">
@@ -153,7 +147,8 @@
                 <div class="portfolio-layer">
                     <h4>Guess My number</h4>
                     <p>Projet Personnel</p>
-                    <a target="_blank" href="https://github.com/nouhoheflin/gamme.git"><i class='bx bx-link-external'></i></a>
+                    <a target="_blank" href="https://github.com/nouhoheflin/gamme.git"><i
+                            class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfolio-box">
@@ -162,7 +157,8 @@
                     <h4>Country List</h4>
                     <p>Projet personnel</p>
 
-                    <a target="_blank" href="https://github.com/nouhoheflin?tab=repositories"><i class='bx bx-link-external'></i></a>
+                    <a target="_blank" href="https://github.com/nouhoheflin?tab=repositories"><i
+                            class='bx bx-link-external'></i></a>
                 </div>
             </div>
             <div class="portfolio-box">
@@ -170,10 +166,11 @@
                 <div class="portfolio-layer">
                     <h4>Formulaire</h4>
                     <p>Projet personnel</p>
-                    <a target="_blank" href="https://github.com/nouhoheflin?tab=repositories"><i class='bx bx-link-external'></i></a>
+                    <a target="_blank" href="https://github.com/nouhoheflin?tab=repositories"><i
+                            class='bx bx-link-external'></i></a>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -183,19 +180,23 @@
 
     <section class="contact" id="contact">
         <h2 class="section-title">Me <span>Contacter</span></h2>
-        <form action="#">
+        <form action="https://formspree.io/f/xzzrwddr" method="POST">
+            <!-- Redirection après envoi -->
+            <input type="hidden" name="_redirect" value="merci.html">
+
             <div class="input-box">
-                <input type="text" placeholder="Nom">
-                <input type="email" placeholder="Email">
+                <input type="text" name="name" placeholder="Nom" required>
+                <input type="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-box">
-                <input type="number" placeholder="Téléphone">
-                <input type="text" placeholder="Sujet">
+                <input type="tel" name="phone" placeholder="Téléphone">
+                <input type="text" name="subject" placeholder="Sujet">
             </div>
-            <textarea cols="30" rows="10" placeholder="Message"></textarea>
+            <textarea name="message" cols="30" rows="10" placeholder="Message" required></textarea>
             <input type="submit" value="Envoyer" class="btn">
         </form>
     </section>
+
 
     <!-- ############################# -->
     <!--  Footer ->
