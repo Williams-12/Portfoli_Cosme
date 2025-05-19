@@ -131,5 +131,97 @@ if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', toggleTheme);
 }
 
+
+document.querySelector('#contact-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+        const response = await fetch('https://formspree.io/f/xzzrwddr', {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            form.reset();
+
+            // Affiche l'overlay
+            const overlay = document.getElementById('overlay-success');
+            overlay.style.display = 'flex';
+
+            // Lance l’explosion d’étoiles
+            launchStarExplosion();
+
+            // Le retire après 5 secondes
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 5000);
+        } else {
+            alert("Une erreur s’est produite.");
+        }
+    } catch (error) {
+        alert("Erreur réseau.");
+    }
+});
+
+function launchStarExplosion() {
+    const canvas = document.getElementById('star-explosion');
+    const ctx = canvas.getContext('2d');
+    const stars = [];
+    const numStars = 30;
+
+    // Redimensionne le canvas
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    for (let i = 0; i < numStars; i++) {
+        stars.push({
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: Math.random() * 2 + 1,
+            color: `hsl(${Math.random() * 360}, 100%, 70%)`,
+            angle: Math.random() * 2 * Math.PI,
+            speed: Math.random() * 4 + 2,
+            alpha: 1
+        });
+    }
+
+    const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(star => {
+            star.x += Math.cos(star.angle) * star.speed;
+            star.y += Math.sin(star.angle) * star.speed;
+            star.alpha -= 0.02;
+
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
+            ctx.fillStyle = `rgba(${hexToRgb(star.color)}, ${star.alpha})`;
+            ctx.fill();
+        });
+
+        if (stars.some(s => s.alpha > 0)) {
+            requestAnimationFrame(animate);
+        }
+    };
+
+    animate();
+}
+
+function hexToRgb(hsl) {
+    const tmp = document.createElement("div");
+    tmp.style.color = hsl;
+    document.body.appendChild(tmp);
+    const rgb = getComputedStyle(tmp).color.match(/\d+/g);
+    tmp.remove();
+    return rgb.join(',');
+}
+
+
+
+
 // Call initTheme au chargement
 initTheme();

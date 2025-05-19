@@ -453,6 +453,61 @@ form input[type="submit"] {
     cursor: pointer;
 }
 
+
+/* retour sur contact */
+.overlay-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.success-box {
+  background: var(--light);
+  color: var(--bg);
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 30px rgba(255,255,255,0.1);
+  animation: popup 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Canvas étoiles */
+#star-explosion {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+
 /* ################################## */
 /* Footer */
 /* ################################## */
